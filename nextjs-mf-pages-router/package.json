@@ -1,0 +1,16 @@
+{
+  "name": "nextjs-ssr",
+  "private": true,
+  "workspaces": [
+    "./header",
+    "./homepage"
+  ],
+  "version": "0.0.0",
+  "scripts": {
+    "build": "find . -type d -name '.next' -exec rm -rf {} +  && concurrently \"cd homepage; yarn install\" \"cd header; yarn install\"",
+    "start": "find . -type d -name '.next' -exec rm -rf {} + && concurrently \"cd homepage; yarn dev\" \"cd header; yarn dev\""
+  },
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
